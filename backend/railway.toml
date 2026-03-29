@@ -1,0 +1,8 @@
+# railway.toml - for Railway.app deployment (alternative to Render)
+[build]
+builder = "NIXPACKS"
+
+[deploy]
+startCommand = "node server.js"
+restartPolicyType = "ON_FAILURE"
+restartPolicyMaxRetries = 3

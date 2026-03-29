@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: gpuforge
+    runtime: node
+    plan: starter
+    buildCommand: cd frontend && npm install && npm run build && cd ../backend && npm install
+    startCommand: cd backend && npm run start:prod
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DB_PATH
+        value: /var/data/gpuforge.db
+    disk:
+      name: gpuforge-data
+      mountPath: /var/data
+      sizeGB: 1
